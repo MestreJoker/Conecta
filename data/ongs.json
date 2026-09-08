@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "nome": "ONG Esperança",
+    "sobre": "Apoiamos famílias em situação de vulnerabilidade social com doações de alimentos, roupas, produtos de higiene e atividades educativas.",
+    "endereco": "Rua das Flores, 123",
+    "bairro": "Vila Madalena",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "05432-000",
+    "logo": "ongEsperanca.png"
+  },
+  {
+    "id": 2,
+    "nome": "Casa da Criança",
+    "sobre": "Espaço de acolhimento e desenvolvimento integral para crianças e jovens da região metropolitana.",
+    "endereco": "Rua Legal, 500",
+    "bairro": "Pinheiros",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "05422-010",
+    "logo": "casaDaCrianca.png"
+  },
+  {
+    "id": 3,
+    "nome": "Projeto Sorrisao",
+    "sobre": "Promovemos alegria, cultura e apoio pedagógico para comunidades em áreas de risco.",
+    "endereco": "Avenida das Nações, 120",
+    "bairro": "Jardins",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "01410-000",
+    "logo": "projetoSorrisao.png"
+  },
+  {
+    "id": 4,
+    "nome": "Instituto Acolher",
+    "sobre": "Trabalho voltado à reintegração social, abrigo temporário e acolhimento humano emergencial.",
+    "endereco": "Rua Primavera, 340",
+    "bairro": "Bela Vista",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "01323-010",
+    "logo": "institutoAcolher.png"
+  },
+  {
+    "id": 5,
+    "nome": "Inclusão Digital",
+    "sobre": "Capacitação digital e profissionalização gratuita para jovens da rede pública.",
+    "endereco": "Rua dos Pinheiros, 880",
+    "bairro": "Butantã",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "05501-020",
+    "logo": "inclusaoDigital.png"
+  }
+]
