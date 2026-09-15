@@ -31,21 +31,21 @@ export default function Necessidades() {
                     </View>
                 </View>
 
-                <View className="mt-5 h-10 flex-row items-center rounded-lg border border-gray-300 shadow-sm bg-white">
+                <View className="mt-5 flex-row items-center rounded-xl border border-gray-300 shadow-sm bg-white h-[60px]">
                     <View className="px-3">
-                        <FontAwesome name="search" size={17} color="gray" />
+                        <FontAwesome name="search" size={24} color="gray" />
                     </View>
 
-                    <View className="flex-1">
+                    <View className="flex-1 h-[80px]">
                         <TextInput
                             placeholder="O que você procura?"
                             placeholderTextColor="#9ca3af"
-                            className="h-full z-100 px-2"
+                            className="h-full z-100 px-2 text-lg"
                         />
                     </View>
 
                     <View className="border-l border-gray-300 px-3">
-                        <FontAwesome name="filter" size={17} color="#1b6def" />
+                        <FontAwesome name="filter" size={24} color="#1b6def" />
                     </View>
                 </View>
 

@@ -42,7 +42,7 @@ export default function App() {
           </TouchableOpacity>
         </View>
 
-        <View className='flex flex-row justify-center gap-x-13 mt-auto w-[91%] mx-auto'>
+        <View className='flex flex-row justify-center gap-x-[35px] mt-auto w-[91%] mx-auto'>
           <View className='flex flex-row items-center w-[80px] gap-2'>
             <View className='w-11 h-11 rounded-full bg-[#e7f5ef] flex justify-center items-center'>
               <FontAwesome name="group" size={17} style={{ color: '#37ae80' }} />

@@ -68,29 +68,29 @@ export default function NecessidadeCard(props: NecessidadeProps) {
         router.push(`/necessidades/${props.slug}`);
     };
     return (
-        <TouchableOpacity className="rounded-lg border border-gray-300 shadow-md p-2 flex flex-row gap-2 bg-white" onPress={abrirNecessidade}>
-            <View className={`rounded-xl ${background} w-[70px] h-[70px]`}>
-                <Image source={imagem} style={{ width: 50, height: 50 }} className="m-auto" />
+        <TouchableOpacity className="rounded-lg border border-gray-200 shadow-md p-2 flex flex-row gap-2 bg-white h-[120px]" onPress={abrirNecessidade}>
+            <View className={`rounded-xl ${background} w-[100px] h-[100px]`}>
+                <Image source={imagem} style={{ width: 90, height: 90 }} className="m-auto" />
             </View>
 
             <View className="flex-1">
-                <Text className="font-extrabold">{props.necessidade}</Text>
-                <Text className="text-xs text-gray-500">{props.qtdNecessaria} {textoTipoQtd}</Text>
-                <View className="flex flex-row gap-1 items-center">
-                    <FontAwesome name="building-o" color={'#757575'} />
-                    <Text className="text-xs text-gray-600">{props.ong}</Text>
+                <Text className="font-bold text-2xl">{props.necessidade}</Text>
+                <Text className="text-lg text-gray-500">{props.qtdNecessaria} {textoTipoQtd}</Text>
+                <View className="flex flex-row gap-1 items-center mb-1">
+                    <FontAwesome name="building-o" color={'#757575'} size={15}/>
+                    <Text className=" text-gray-600">{props.ong}</Text>
                 </View>
                 <View className="flex flex-row gap-1 items-center">
-                    <FontAwesome name="map-marker" color={'#757575'} />
-                    <Text className="text-xs text-gray-600">{props.distancia} {textoDitancia}</Text>
+                    <FontAwesome name="map-marker" color={'#757575'} size={17}/>
+                    <Text className="text-gray-600">{props.distancia} {textoDitancia}</Text>
                 </View>
             </View>
 
             <View className="flex justify-between items-end">
-                <View className={`${background} py-1 px-2 rounded-full`}>
-                    <Text className="text-xs">{textoPrioridade}</Text>
+                <View className={`${background} px-3 rounded-full`}>
+                    <Text className="text-lg">{textoPrioridade}</Text>
                 </View>
-                <FontAwesome name="heart-o" className="mr-2" size={15} />
+                <FontAwesome name="heart-o" className="mr-2" size={20} />
             </View>
         </TouchableOpacity>
     )
