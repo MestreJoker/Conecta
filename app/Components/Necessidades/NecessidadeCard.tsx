@@ -68,9 +68,9 @@ export default function NecessidadeCard(props: NecessidadeProps) {
         router.push(`/necessidades/${props.slug}`);
     };
     return (
-        <TouchableOpacity className="rounded-lg border border-gray-200 shadow-md p-2 flex flex-row gap-2 bg-white h-[120px]" onPress={abrirNecessidade}>
-            <View className={`rounded-xl ${background} w-[100px] h-[100px]`}>
-                <Image source={imagem} style={{ width: 90, height: 90 }} className="m-auto" />
+        <TouchableOpacity className="rounded-lg border border-gray-200 shadow-md p-2 flex flex-row gap-2 bg-white h-[110px]" onPress={abrirNecessidade}>
+            <View className={`rounded-xl ${background} w-[85px] h-[85px]`}>
+                <Image source={imagem} style={{ width: 50, height: 50 }} className="m-auto" />
             </View>
 
             <View className="flex-1">
