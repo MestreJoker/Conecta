@@ -16,27 +16,27 @@ export default function Necessidades() {
     ];
     return (
         <SafeAreaProvider>
-            <ScrollView className="p-4">
+            <ScrollView className="px-4 py-7">
                 <View className="flex-row items-center justify-between">
                     <Image
                         source={require('../../assets/images/conecta.png')}
-                        style={{ width: 110, height: 18.2 }}
+                        style={{ width: 160, height: 26.4 }}
                     />
 
-                    <View className="flex-row items-center gap-3">
-                        <FontAwesome name="bell" size={18} color="gray" />
-                        <View className="h-8 w-8 items-center justify-center rounded-full bg-[#def3ed]">
-                            <FontAwesome name="user" size={18} color="#129e84" />
+                    <View className="flex-row items-center gap-7">
+                        <FontAwesome name="bell" size={26} color="gray" />
+                        <View className="h-12 w-12 items-center justify-center rounded-full bg-[#def3ed]">
+                            <FontAwesome name="user" size={26} color="#129e84" />
                         </View>
                     </View>
                 </View>
 
-                <View className="mt-5 flex-row items-center rounded-xl border border-gray-300 shadow-sm bg-white h-[60px]">
+                <View className="mt-5 flex-row items-center rounded-xl border border-gray-300 shadow-sm bg-white h-[50px]">
                     <View className="px-3">
                         <FontAwesome name="search" size={24} color="gray" />
                     </View>
 
-                    <View className="flex-1 h-[80px]">
+                    <View className="flex-1 hfull">
                         <TextInput
                             placeholder="O que você procura?"
                             placeholderTextColor="#9ca3af"
@@ -49,23 +49,24 @@ export default function Necessidades() {
                     </View>
                 </View>
 
-                <Text className='mt-3 font-extrabold'>Categorias</Text>
-                <View className="mt-2 flex-row gap-2">
+                <Text className='mt-3 font-extrabold text-lg'>Categorias</Text>
+                <ScrollView className="mt-2" horizontal
+                contentContainerStyle={{ gap: 8, }}>
                     {categoriasCard.map((item, index) => (
                         <CategoriaCard key={`categoria${index + 1}`}imagem={item.imagem} texto={item.texto} />
                     ))}
-                </View>
+                </ScrollView>
 
-                <Text className='mt-3 font-extrabold'>Necessidades próximas</Text>
+                <Text className='mt-7 font-extrabold text-lg my-1'>Necessidades próximas</Text>
 
                 <View className='flex flex-row justify-between items-center'>
-                    <View className='gap-1 flex flex-row'>
-                        <FontAwesome name='map-marker' color={'#9E9E9E'} />
-                        <Text className='text-gray-500 text-xs'>São Paulo - SP</Text>
+                    <View className='gap-1 flex flex-row items-center'>
+                        <FontAwesome name='map-marker' color={'#9E9E9E'} size={15}/>
+                        <Text className='text-gray-500'>São Paulo - SP</Text>
                     </View>
-                    <Text className='text-blue-500 text-xs'>Alterar localização</Text>
+                    <Text className='text-blue-500'>Alterar localização</Text>
                 </View>
-                <View className="flex mt-2">
+                <View className="flex mt-6">
                     <ConteudoNecessidadesCard />
                 </View>
             </ScrollView>

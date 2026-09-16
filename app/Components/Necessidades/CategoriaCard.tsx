@@ -9,8 +9,8 @@ interface CategoriaCardProps {
 export default function CategoriaCard(props: CategoriaCardProps) {
   
   return (
-    <TouchableOpacity className="flex-1 items-center gap-2 rounded-lg border border-gray-400 p-1">
-      <Image source={props.imagem} style={{ width: 35, height: 35 }} />
+    <TouchableOpacity className="items-center gap-2 rounded-2xl border border-gray-200 px-1 py-4 w-[75px]">
+      <Image source={props.imagem} style={{ width: 30, height: 30 }} />
       <Text className='text-[0.6rem] font-bold'>{props.texto}</Text>
     </TouchableOpacity>
   );
