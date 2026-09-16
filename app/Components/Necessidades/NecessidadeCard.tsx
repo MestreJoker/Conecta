@@ -92,7 +92,7 @@ export default function NecessidadeCard(props: NecessidadeProps) {
                 </View>
                 <View className="flex flex-row gap-1 items-center">
                     <FontAwesome name="map-marker" color={'#757575'} size={15}/>
-                    <Text className="text-gray-600 text-sm">{props.distancia} {textoDitancia} de cocê</Text>
+                    <Text className="text-green-600 text-sm">{props.distancia} {textoDitancia} de cocê</Text>
                 </View>
             </View>
 

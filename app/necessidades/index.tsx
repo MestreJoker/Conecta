@@ -66,7 +66,7 @@ export default function Necessidades() {
                     </View>
                     <Text className='text-blue-500'>Alterar localização</Text>
                 </View>
-                <View className="flex mt-6">
+                <View className="flex mt-6 mb-[45px]">
                     <ConteudoNecessidadesCard />
                 </View>
             </ScrollView>
