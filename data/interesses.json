@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "idUsuario": 1,
+    "idNecessidade": 1,
+    "data": "23/09/2026",
+    "status": "pendente"
+  },
+  {
+    "id": 2,
+    "idUsuario": 2,
+    "idNecessidade": 3,
+    "data": "23/09/2026",
+    "status": "pendente"
+  }
+]

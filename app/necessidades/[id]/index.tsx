@@ -17,7 +17,7 @@ export default function DetalhesNecessidade() {
   };
 
   const [necessidade, setNecessidade] = useState<NecessidadeProps>({} as NecessidadeProps)
-  const [ong, setOng] = useState<OngsProps>({})
+  const [ong, setOng] = useState<OngsProps>({} as OngsProps)
   useEffect(() => {
     async function resgatarDados() {
       try {
@@ -103,6 +103,32 @@ export default function DetalhesNecessidade() {
     textoDitancia = "m"
   }
 
+  const informacoes = [
+    {
+      icone: <FontAwesome name='amazon' size={20}/>,
+      texto: "Categoria",
+      valor: necessidade.categoria},
+    {
+      icone: <FontAwesome name='balance-scale' size={20}/>,
+      texto: "Quantidade necessária",
+      valor: `${necessidade.qtdNecessaria} ${necessidade.tipoQtd}`},
+    {
+      icone: <FontAwesome name='calendar-o' size={20}/>,
+      texto: "Data da publicação",
+      valor: necessidade.dataPublicacao
+    },
+    {
+      icone: <FontAwesome name='clock-o' size={20}/>,
+      texto: "Prazo estimado",
+      valor: necessidade.prazoEstimado
+    },
+    {
+      icone: <FontAwesome name='users' size={20}/>,
+      texto: "Pessoas beneficiadas",
+      valor: `${necessidade.pessoasBeneficiadas} ${necessidade.tipoPessoasBeneficiadas}`
+    }
+  ]
+
   return (
     <SafeAreaProvider>
       <ScrollView className="flex-1 p-4">
@@ -133,21 +159,46 @@ export default function DetalhesNecessidade() {
         </View>
 
         <View className='flex flex-row gap-2 mt-7 items-center'>
-          <FontAwesome name='exclamation-circle' size={24} />
-          <Text className='font-bold text-xl'>Sobre a necessidade</Text>
+          <Text className='text-blue-500'>
+            <FontAwesome name='exclamation-circle' size={24} />
+          </Text>
+          <Text className='font-bold text-xl text-blue-500'>Sobre a necessidade</Text>
         </View>
         <Text className=' text-gray-600 ml-6'>
           {necessidade.descricao}
         </Text>
 
-        <View className='flex flex-row gap-2 mt-7 items-center'>
-          <FontAwesome name='list' size={18} />
-          <Text className='font-bold text-xl'>Informações</Text>
+        <View className='flex flex-row gap-2 mt-7 items-center mb-4'>
+          <Text className='text-blue-500'><FontAwesome name='list' size={22} /></Text>
+          <Text className='font-bold text-xl text-blue-500'>Informações</Text>
         </View>
 
-        <View className='flex flex-row items-center gap-2 mt-4'>
-          <FontAwesome name='building' size={18} />
-          <Text className='font-bold text-xl'>Sobre a ONG</Text>
+        <View className='flex gap-3'>
+            {informacoes.map((item, index) => {
+              let corTextoData: string = ""
+              if(item.texto == "Prazo estimado"){
+                corTextoData = "text-yellow-600"
+              }
+              return(
+                <View key={`informação${index + 1}`} className='flex flex-row'>
+                    <View className='flex flex-row gap-2 items-center'>
+                      <View className='w-[40] h-[40] rounded-[100] bg-blue-50'>
+                          <Text className='m-auto text-blue-500'>{item.icone}</Text>
+                      </View>
+                      <Text className='font-bold'>{item.texto}</Text>
+                    </View>
+
+                    <View className='flex-1 flex flex-row-reverse'>
+                      <Text className={`uppercase ${corTextoData}`}>{item.valor}</Text>
+                    </View>
+                </View>
+              )
+            })}
+        </View>
+
+        <View className='flex flex-row items-center gap-2 mt-8'>
+          <Text className='text-blue-500'><FontAwesome name='building-o' size={18} /></Text>
+          <Text className='font-bold text-xl text-blue-500'>Sobre a ONG</Text>
         </View>
 
         <View className='flex flex-row mt-2 w-full gap-4'>
@@ -156,7 +207,7 @@ export default function DetalhesNecessidade() {
             <Text className='font-bold text-lg'>{ong.nome}</Text>
             <Text>{ong.sobre}</Text>
             <View className='flex flex-row items-center gap-2'>
-              <Text className='text-blue-500 font-bold mt-2'>Ver mais sobre a ONG</Text>
+              <Text className='text-blue-500 font-bold mt-4'>Ver mais sobre a ONG</Text>
               <FontAwesome name='angle-right' size={14} className='mt-1.5' color={'blue'} />
             </View>
           </View>

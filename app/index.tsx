@@ -10,9 +10,10 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const IMAGE_HEIGHT = SCREEN_WIDTH * (1920 / 1080);
 
 export default function App() {
+
   const router = useRouter();
-  function abrirNecessidade() {
-    router.push('/necessidades');
+  function navegar(pagina: string) {
+    router.push(`/${pagina}`);
   };
 
   return (
@@ -33,11 +34,11 @@ export default function App() {
         <View className='flex items-center gap-2 mt-[127%]'>
           <TouchableOpacity
             className='rounded-xl p-2 w-[80%] bg-blue-500 text-white text-center font-bold
-            h-[60px]' onPress={abrirNecessidade}>
+            h-[60px]' onPress={() => navegar("login")}>
             <Text className='text-white font-bold text-xl m-auto'>Entrar</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            className='rounded-xl border-2 border-[#199795] p-2 w-[80%] text-center font-bold  h-[60px]'>
+            className='rounded-xl border-2 border-[#199795] p-2 w-[80%] text-center font-bold  h-[60px]' onPress={() => navegar("cadastro")}>
             <Text className='text-[#199795] text-xl font-bold m-auto'>Criar conta</Text>
           </TouchableOpacity>
         </View>

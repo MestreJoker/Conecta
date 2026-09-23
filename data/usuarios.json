@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nome": "João Silva",
+    "telefone": "(11) 99999-1111",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "01000-000",
+    "foto": "usuarioPadrao.png"
+  },
+  {
+    "id": 2,
+    "nome": "Maria Santos",
+    "telefone": "(11) 99999-2222",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "01200-000",
+    "foto": "usuarioPadrao.png"
+  },
+  {
+    "id": 3,
+    "nome": "Lucas Oliveira",
+    "telefone": "(11) 99999-3333",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "01310-000",
+    "foto": "usuarioPadrao.png"
+  },
+  {
+    "id": 4,
+    "nome": "Ana Costa",
+    "telefone": "(11) 99999-4444",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "02010-000",
+    "foto": "usuarioPadrao.png"
+  },
+  {
+    "id": 5,
+    "nome": "Pedro Almeida",
+    "telefone": "(11) 99999-5555",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "03010-000",
+    "foto": "usuarioPadrao.png"
+  },
+  {
+    "id": 6,
+    "nome": "Beatriz Lima",
+    "telefone": "(11) 99999-6666",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "04010-000",
+    "foto": "usuarioPadrao.png"
+  },
+  {
+    "id": 7,
+    "nome": "Gabriel Rocha",
+    "telefone": "(11) 99999-7777",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "05010-000",
+    "foto": "usuarioPadrao.png"
+  },
+  {
+    "id": 8,
+    "nome": "Carolina Mendes",
+    "telefone": "(11) 99999-8888",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": "06010-000",
+    "foto": "usuarioPadrao.png"
+  }
+]
