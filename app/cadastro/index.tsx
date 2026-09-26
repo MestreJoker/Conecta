@@ -1,7 +1,7 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { View, Text, StatusBar, Image, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Cadastro() {
@@ -10,65 +10,134 @@ export default function Cadastro() {
         router.push(`/${pagina}`);
     };
 
-    const [tipoSelecionado, setTipoSelecionado] = useState<number>(0)
+    const [tipoSelecionado, setTipoSelecionado] = useState<number>(0);
+    const [mostrarSenha, setMostrarSenha] = useState(false);
+    const [mostrarConfirmarSenha, setMostrarConfirmarSenha] = useState(false);
 
     const tiposConta = [
         {
-            icone: <FontAwesome name="user-o" size={50} color={'#2e7ff4'} />,
+            icone: <FontAwesome name="user" size={40} color={'#2e7ff4'} />,
             titulo: "Usuário",
-            descricao: "Quero ajudar e fazer a diferença"
+            descricao: "Quero ajudar e fazer a diferença."
         },
         {
-            icone: <FontAwesome name="home" size={50} color={'#16a69c'} />,
+            icone: <FontAwesome name="home" size={40} color={'#16a69c'} />,
             titulo: "ONG",
-            descricao: "Quero cadastrar minha ONG no Conecta"
+            descricao: "Quero cadastrar minha ONG no Conecta."
         }
-    ]
+    ];
 
     return (
-        <SafeAreaProvider>
-            <ScrollView className='mb-10 p-4'>
-                <Image source={require('../../assets/images/logoConecta.png')} style={{ width: 210, height: 190, marginTop: 10 }} className="mx-auto" />
-
-                <Text className="text-4xl font-bold mt-[20px]">Criar conta</Text>
-                <Text className="text-lg text-gray-500">Escolha como você quer se cadastrar</Text>
-
-                <View className="flex flex-row justify-between mt-5">
-                    {tiposConta.map((item, index) => {
-                        let estilo = "border-gray-300 bg-white"
-                        if (index == tipoSelecionado) {
-                            estilo = "border-[3px] border-blue-500 bg-blue-50"
-                        }
-                        return (
-                            <TouchableOpacity key={`tipo${index}`}
-                                className={`w-[49%] h-[170px] rounded-xl border ${estilo} items-center justify-center flex`}
-                                onPress={() => setTipoSelecionado(index)}>
-                                <View className="mb-1">{item.icone}</View>
-                                <Text className="text-xl font-bold">{item.titulo}</Text>
-                                <Text className="text-center">{item.descricao}</Text>
-                            </TouchableOpacity>
-                        )
-                    })}
+        <SafeAreaProvider className="flex-1 bg-white">
+                {/* Logo e Slogan */}
+                <View className="items-center mt-4">
+                    <Image source={require('../../assets/images/logoConecta.png')} style={{ width: 170, height: 150, resizeMode: 'contain' }} />
+                    <View className="w-24 h-1 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full mt-2" />
                 </View>
 
-                <Text className="text-xl font-bold mt-4">E-mail: </Text>
-                <TextInput placeholder="Ex.: joao@gmail.com" className="text-xl p-3 border border-gray-500 rounded-xl py-4" multiline={true} textAlignVertical="center" />
+                <View className="px-4">
+                    <Text className="text-3xl font-bold mt-2 text-[#111827]">Criar conta</Text>
+                    <Text className="text-base text-gray-500 mb-4">Escolha como você quer se cadastrar:</Text>
 
-                <Text className="text-xl font-bold mt-4">Senha: </Text>
-                <TextInput placeholder="********" className="text-xl p-3 border border-gray-500 rounded-xl py-4" />
+                    {/* Tipos de Conta */}
+                    <View className="flex flex-row justify-between mb-4">
+                        {tiposConta.map((item, index) => {
+                            const selecionado = index === tipoSelecionado;
+                            return (
+                                <TouchableOpacity
+                                    key={`tipo${index}`}
+                                    className={`w-[48%] p-4 rounded-2xl border ${selecionado ? 'border-[2px] border-blue-500 bg-blue-50/40' : 'border-gray-200 bg-white'} items-center justify-center relative`}
+                                    onPress={() => setTipoSelecionado(index)}
+                                >
+                                    {selecionado && (
+                                        <View className="absolute top-3 right-3">
+                                            <FontAwesome name="check-circle" size={18} color="#2e7ff4" />
+                                        </View>
+                                    )}
+                                    <View className="mb-2">{item.icone}</View>
+                                    <Text className="text-lg font-bold text-[#111827]">{item.titulo}</Text>
+                                    <Text className="text-center text-xs text-gray-500 mt-1">{item.descricao}</Text>
+                                </TouchableOpacity>
+                            );
+                        })}
+                    </View>
 
-                <TouchableOpacity
-                    className='rounded-xl p-2 w-full bg-blue-500 text-white text-center font-bold
-                            h-[60px] mx-auto mt-5' onPress={() => navegar("necessidades")}>
-                    <Text className='text-white font-bold text-xl m-auto'>Fazer Login</Text>
-                </TouchableOpacity>
-                <Text className="text-gray-500 text-center mt-2" >
-                    Já tem uma conta? <TouchableOpacity onPress={() => navegar("cadastro")}>
-                        <Text className="text-[#16a69c]"
-                            style={{ textDecorationLine: 'underline' }}>Fazer Login</Text>
+                    {/* Nome completo */}
+                    <Text className="font-semibold text-sm text-gray-700 mb-1">Nome completo:</Text>
+                    <View className="rounded-xl border border-gray-200 bg-gray-50/50 flex flex-row items-center px-3 mb-3">
+                        <FontAwesome name="user-o" size={18} color="#9ca3af" />
+                        <TextInput
+                            placeholder="Ex.: João da Silva"
+                            placeholderTextColor="#9ca3af"
+                            className="flex-1 text-base p-3 text-gray-800"
+                        />
+                    </View>
+
+                    {/* E-mail */}
+                    <Text className="font-semibold text-sm text-gray-700 mb-1">E-mail:</Text>
+                    <View className="rounded-xl border border-gray-200 bg-gray-50/50 flex flex-row items-center px-3 mb-3">
+                        <FontAwesome name="envelope-o" size={18} color="#9ca3af" />
+                        <TextInput
+                            placeholder="Ex.: joao@email.com"
+                            placeholderTextColor="#9ca3af"
+                            keyboardType="email-address"
+                            autoCapitalize="none"
+                            className="flex-1 text-base p-3 text-gray-800"
+                        />
+                    </View>
+
+                    {/* Senha */}
+                    <Text className="font-semibold text-sm text-gray-700 mb-1">Senha:</Text>
+                    <View className="rounded-xl border border-gray-200 bg-gray-50/50 flex flex-row items-center px-3 mb-3">
+                        <FontAwesome name="lock" size={18} color="#9ca3af" />
+                        <TextInput
+                            placeholder="Mínimo de 6 caracteres"
+                            placeholderTextColor="#9ca3af"
+                            secureTextEntry={!mostrarSenha}
+                            className="flex-1 text-base p-3 text-gray-800"
+                        />
+                        <TouchableOpacity onPress={() => setMostrarSenha(!mostrarSenha)}>
+                            <FontAwesome name={mostrarSenha ? "eye" : "eye-slash"} size={18} color="#9ca3af" />
+                        </TouchableOpacity>
+                    </View>
+
+                    {/* Confirmar senha */}
+                    <Text className="font-semibold text-sm text-gray-700 mb-1">Confirmar senha:</Text>
+                    <View className="rounded-xl border border-gray-200 bg-gray-50/50 flex flex-row items-center px-3 mb-4">
+                        <FontAwesome name="lock" size={18} color="#9ca3af" />
+                        <TextInput
+                            placeholder="Digite a senha novamente"
+                            placeholderTextColor="#9ca3af"
+                            secureTextEntry={!mostrarConfirmarSenha}
+                            className="flex-1 text-base p-3 text-gray-800"
+                        />
+                        <TouchableOpacity onPress={() => setMostrarConfirmarSenha(!mostrarConfirmarSenha)}>
+                            <FontAwesome name={mostrarConfirmarSenha ? "eye" : "eye-slash"} size={18} color="#9ca3af" />
+                        </TouchableOpacity>
+                    </View>
+
+                    {/* Botão Cadastrar */}
+                    <TouchableOpacity
+                        className='rounded-xl w-full bg-blue-500 h-12 items-center justify-center shadow-sm mb-4'
+                        onPress={() => navegar("necessidades")}
+                    >
+                        <Text className='text-white font-bold text-lg'>Cadastrar</Text>
                     </TouchableOpacity>
-                </Text>
-            </ScrollView>
+
+                    {/* Link Login */}
+                    <View className="flex flex-row justify-center items-center gap-1">
+                        <Text className="text-gray-500 text-sm">Já tem uma conta?</Text>
+                        <TouchableOpacity onPress={() => navegar("cadastro")}>
+                            <Text className="text-[#16a69c] font-medium underline text-sm">
+                                Fazer login
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+                <View className="-mt-[12px]">
+                    <Image source={require('../../assets/images/backgroundRodape.png')} style={{ width: '100%', height: 150, resizeMode: 'contain' }} />
+                </View>
         </SafeAreaProvider>
-    )
+    );
 }
